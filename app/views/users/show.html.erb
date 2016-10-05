@@ -1,0 +1,9 @@
+<h1> User Dashboard </h1>
+<h1> <%=@user.first_name %> has: <%=@user.quotes.count%> quotes </h1>
+<h1> <%=@user.first_name %> has been a member since: <%=@user.created_at.strftime('%B %d, %Y') %> </h1>
+<div class="profile_picture">
+
+  <%= image_tag @user.profile_picture %>
+
+</h1>
+</div>

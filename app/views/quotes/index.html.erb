@@ -1,0 +1,29 @@
+<div class="form_wrapper">
+  <h1>Listing quotes</h1>
+
+  <table>
+    <tbody>
+      <% @quotes.each do |quote| %>
+        <tr>
+          <td>
+          
+          <div class="quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>  
+          <i> <%= quote.user.first_name %>
+          <%= quote.user.last_name %> </i>
+          </div></td>
+          <td><%= quote.citation %></td>
+          <td><%= link_to 'Show', quote_path(quote) %></td>
+          <% if current_user && current_user == quote.user%>
+          <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+          <td><%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Quote', new_quote_path, class: "btn btn-default"%>
+</div>

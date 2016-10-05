@@ -1,0 +1,24 @@
+<div id="quote" style="background:url(<%= @quote.image.url -%>); background-size:cover;">
+  <div class="quote-bg">
+  </div>
+  <div class="quote-body">
+
+    <div class="quote-text">
+      "<%= @quote.said %>"
+    </div>
+
+    <div class="quote-author">
+      <%= @quote.first_name %>
+      <%= @quote.last_name %>
+
+    </div>
+
+    <div class="quote-actions">
+      <% if current_user && current_user == @quote.user %>
+      <%= link_to 'Edit', edit_user_quote_path(@quote) %> |
+      <%= link_to 'Back', quotes_path %>
+    </div>
+       <% end %>
+
+  </div>
+</div>
