@@ -9,7 +9,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   
-  
+  extend FriendlyId
+
+  friendly_id :last_name
 
 
 end
