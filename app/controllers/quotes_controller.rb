@@ -36,7 +36,8 @@ def update
 end
 
   def show 
-    @quote = Quote.find(params[:id])
+    @quote = Quote.friendly.find(params[:id])
+
   end
 
     def destroy
