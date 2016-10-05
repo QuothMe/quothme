@@ -25,16 +25,16 @@ quotes shown on their user pages.
 #### Quote Schema
 the general structure of a quote model is as follows:
 ```
-author: string,
-said: text
-img:string,
-tags: string
+author: @quote.user.first_name, @quote.user.last_name
+citation: text
+image:string,
+
 ```
 *author* is a string intended for a person's name. In the future,
 it may be possible to update the author value to actually be a reference to a
 registered user account.
 
-*said* contains the text of a quote. there is not currently a set limit on quote
+*citation* contains the text of a quote. there is not currently a set limit on quote
 length.
 
 *img* is intended to be used as a decorative backdrop. We can find a way to
