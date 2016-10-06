@@ -1,0 +1,40 @@
+<%= simple_form_for @quote do |f| %>
+  <% if @quote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
+
+      <ul>
+      <% @quote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :tags_list %>
+    <%= f.text_field :tag_list, class: "form-control"%>
+  </div>
+
+  <div class = "field">
+    <%= f.input :author_first_name %>
+    <%= f.input :author_last_name %>
+  </div>
+
+  <div class= "field">
+    <%= f.input :author_email %>
+    <%= f.input :author_username %>
+  </div>
+
+  <div class="field">
+    <%= f.input :citation %>
+  </div>
+
+  <div class="field">
+    <%= f.input :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

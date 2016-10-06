@@ -25,14 +25,15 @@ end
 
   def edit
     @quote = Quote.find(params[:id])
-    if @quote.user != current_user
+    unless @quote.user == current_user || current_user.admin? == true
       return render text: "Not Allowed", status: :forbidden
   end
+  
 end
 
 def update
    @quote = Quote.find(params[:id]) 
-   if @quote.user != current_user
+   unless @quote.user == current_user || current_user.admin? == true
     return render text: "Not allowed", status: :forbidden
   end
     @quote.update_attributes(quote_params)
@@ -46,7 +47,7 @@ end
 
     def destroy
     @quote = Quote.find(params[:id])
-    if @quote.user != current_user
+    unless @quote.user == current_user || current_user.admin? == true
     return render text: "Not Allowed", status: :forbidden
    end
     @quote.destroy
@@ -58,7 +59,7 @@ end
     private
   
     def quote_params
-      params.require(:quote).permit(:citation, :image, :tag_list)
+      params.require(:quote).permit(:citation, :image, :tag_list, :author_email, :author_first_name, :author_last_name, :author_username)
     end
 
 

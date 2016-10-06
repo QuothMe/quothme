@@ -5,7 +5,7 @@
       <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
       <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
-  
+
 </div>
 
   <table>
@@ -15,14 +15,25 @@
           <td>
           <% if quote.user.present? %>
           <div class="quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>  
+
+         <%if quote.user.admin? %>
+          <i><%= quote.author_first_name %>
+          <%= quote.author_last_name %></i>
+          <td><%= quote.citation %></td>
+          <% else %> 
+
           <i> <%= quote.user.first_name %>
           <%= quote.user.last_name %> </i>
-          </div></td>
           <td><%= quote.citation %>
+          </td>
+          </div>
+          <% end %> 
+          
+            
           
           </td>
           <td><%= link_to 'Show', quote_path(quote) %></td>
-          <% if current_user && current_user == quote.user%>
+          <% if current_user && current_user == quote.user || current_user.admin?%>
           <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
           <td><%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
           <small> Tags: <%=raw quote.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %> </small></td>
@@ -34,6 +45,8 @@
   </table>
 
   <br>
-
+   <% if current_user.admin? %>
+    <%= link_to 'Create Quote as Admin', new_admin_quote_path, class: "btn btn-danger" %>
+    <% end %>
   <%= link_to'New Quote', new_quote_path, class: "btn btn-default"%>
 </div>

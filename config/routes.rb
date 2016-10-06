@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :users
 
   root 'quotes#index'
   get 'tags/:tag', to:'quotes#index', as: :tag
+  
   resources :quotes   
 
+  namespace :admin do
+    resources :quotes, only:[:new, :create]
+  end
 
 
   resources :users, only:[:show]
