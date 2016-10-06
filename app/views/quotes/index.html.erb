@@ -1,6 +1,13 @@
 <div class="form_wrapper">
   <h1>Listing quotes</h1>
 
+   <div id="tag_cloud">
+      <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+  
+</div>
+
   <table>
     <tbody>
       <% @quotes.each do |quote| %> 
@@ -28,5 +35,5 @@
 
   <br>
 
-  <%= link_to 'New Quote', new_quote_path, class: "btn btn-default"%>
+  <%= link_to'New Quote', new_quote_path, class: "btn btn-default"%>
 </div>
