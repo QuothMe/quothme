@@ -11,7 +11,7 @@ class User < ApplicationRecord
   
   extend FriendlyId
 
-  friendly_id :last_name
+  friendly_id :username
 
 
 end

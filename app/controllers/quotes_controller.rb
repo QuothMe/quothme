@@ -3,8 +3,12 @@ class QuotesController < ApplicationController
 before_action :authenticate_user!, only: [:new, :create, :edit, :update, :delete]
 
   def index
-    @quotes = Quote.all
+    if params[:tag].present?
+    @quotes = Quote.tagged_with(params[:tag])
+  else 
+    @quotes = Quote.all.order("created_at DESC")
   end
+end
 
   def show
     @quote = Quote.find(params[:id])
@@ -36,7 +40,7 @@ def update
 end
 
   def show 
-    @quote = Quote.friendly.find(params[:id])
+    @quote = Quote.find(params[:id])
 
   end
 
@@ -54,7 +58,7 @@ end
     private
   
     def quote_params
-      params.require(:quote).permit(:citation, :image)
+      params.require(:quote).permit(:citation, :image, :tag_list)
     end
 
 

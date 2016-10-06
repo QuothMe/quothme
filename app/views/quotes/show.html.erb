@@ -15,7 +15,7 @@
 
     <div class="quote-actions">
       <% if current_user && current_user == @quote.user %>
-      <%= link_to 'Edit', edit_user_quote_path(@quote) %> |
+      <%= link_to 'Edit', edit_quote_path(@quote) %> |
       <%= link_to 'Back', quotes_path %>
     </div>
        <% end %>
