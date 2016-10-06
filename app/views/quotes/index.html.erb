@@ -3,21 +3,24 @@
 
   <table>
     <tbody>
-      <% @quotes.each do |quote| %>
+      <% @quotes.each do |quote| %> 
         <tr>
           <td>
-          
+          <% if quote.user.present? %>
           <div class="quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>  
           <i> <%= quote.user.first_name %>
           <%= quote.user.last_name %> </i>
           </div></td>
-          <td><%= quote.citation %></td>
+          <td><%= quote.citation %>
+          
+          </td>
           <td><%= link_to 'Show', quote_path(quote) %></td>
           <% if current_user && current_user == quote.user%>
           <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-          <td><%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <small> Tags: <%=raw quote.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %> </small></td>
           <% end %>
-
+          <% end %>
         </tr>
       <% end %>
     </tbody>
