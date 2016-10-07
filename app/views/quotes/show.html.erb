@@ -8,9 +8,10 @@
     </div>
 
     <div class="quote-author">
-      <%= @quote.user.first_name %>
-      <%= @quote.user.last_name %>
-
+      <%= link_to @quote.user, class: :"author_link" do %>
+        <%= image_tag @quote.user.profile_picture.comment_thumb, class: :"quote_avatar" %>
+        <b><%= @quote.user.first_name %> <%= @quote.user.last_name %></b>
+        <% end %>
     </div>
 
     <div class="quote-actions">
