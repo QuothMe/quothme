@@ -63,7 +63,7 @@ body {
 
 /* Quote Index */
 .img_thumb {
-  max-width: 200px;
+  width: 100%;
 }
 
 .quote_thumb {
@@ -109,14 +109,19 @@ img.profile_avatar {
 
 .profile_quote_thumb {
   width: 233px;
-  max-height: 230px;
+  height: 260px;
   margin-bottom: 10px;
   text-align: center;
-  padding: 1em 3em 1em 1em;
+  padding: 0;
   border: 1px solid #cacaca;
-  margin: 1em;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
 }
 
+.quote_list {
+  margin: 15px;
+}
 /* Quote View Styling */
 .quote_avatar {
   border-radius: 28em;
