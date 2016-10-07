@@ -17,3 +17,17 @@
 </div>
 
 <b> <%=@user.first_name %> has: <%=@user.quotes.count%> quotes </b>
+
+<% @user.quotes.each do |quote| %>
+    <% if quote.user.present? %>
+    <%= link_to quote, class: :"quote_link" do %>
+      <div class="profile_quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>
+    <% end %>
+      <% if current_user && current_user == quote.user%>
+      <%= link_to 'Edit', edit_quote_path(quote) %>
+      <%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <small> Tags: <%=raw quote.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %> </small>
+    </div>
+    <% end %>
+    <% end %>
+<% end %>
