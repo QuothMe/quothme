@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'simple_form'
 gem 'friendly_id'
