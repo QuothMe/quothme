@@ -21,6 +21,7 @@
     <% if quote.user.present? %>
     <%= link_to quote, class: :"quote_link" do %>
       <div class="profile_quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>
+        "<%= quote.citation %>"
     <% end %>
       <% if current_user && current_user == quote.user%>
       <%= link_to 'Edit', edit_quote_path(quote) %>
@@ -28,6 +29,7 @@
       <small> Tags: <%=raw quote.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %> </small>
     </div>
     <% end %>
+  </div>
     <% end %>
 <% end %>
 </div>
