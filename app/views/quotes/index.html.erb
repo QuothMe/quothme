@@ -1,10 +1,9 @@
 <div class="form_wrapper">
-  <h1>Listing quotes</h1>
-
    <div id="tag_cloud">
       <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
       <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
+<<<<<<< HEAD
 
 </div>
 
@@ -41,9 +40,33 @@
           <% end %>
           <% end %>
         </tr>
+=======
+
+</div>
+      <% @quotes.each do |quote| %>
+          <% if quote.user.present? %>
+          <%= link_to quote_path(quote), class: :"quote_link" do %>
+          <div class="quote_thumb", style="background:url(<%= quote.image.url -%>); background-size:cover;"\>
+            <div class="quote_cite"><%= quote.citation %></div>
+
+            <div class="quote-author">
+              <%= link_to quote.user, class: :"author_link" do %>
+                <%= image_tag quote.user.profile_picture.comment_thumb, class: :"quote_avatar" %>
+                <b><%= quote.user.first_name %> <%= quote.user.last_name %></b>
+                <% end %>
+            </div>
+
+            <% if current_user && current_user == quote.user%>
+            <%= link_to 'Edit', edit_quote_path(quote) %>
+            <%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <small> Tags: <%=raw quote.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %> </small>
+            <% end %>
+              <% end %>
+            <% end %>
+
+          </div>
+>>>>>>> a226bca7903abca54252773a0aeebed5fe6bf9ab
       <% end %>
-    </tbody>
-  </table>
 
   <br>
    <% if current_user.admin? %>

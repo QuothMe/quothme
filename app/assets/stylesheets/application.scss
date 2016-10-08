@@ -34,6 +34,7 @@ body {
   overflow: hidden;
 }
 
+
 .quote-image {
   width: 100%;
 }
@@ -67,10 +68,18 @@ body {
 }
 
 .quote_thumb {
-  width: 60%;
-  max-height: 230px;
+  width: 100%;
   margin-bottom: 10px;
   text-align: center;
+  height: auto;
+  min-height: 400px;
+}
+
+.quote_cite {
+      color: #fff;
+      font-weight: bold;
+      font-size: 30px;
+      padding-top: 5em;
 }
 
 /* UI element changes */
@@ -85,6 +94,7 @@ body {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 3em;
 }
 
 /* User Dashboard Styling */
