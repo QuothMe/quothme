@@ -1,9 +1,37 @@
-<h1> User Dashboard </h1>
-<h1> <%=@user.first_name %> has: <%=@user.quotes.count%> quotes </h1>
-<h1> <%=@user.first_name %> has been a member since: <%=@user.created_at.strftime('%B %d, %Y') %> </h1>
-<div class="profile_picture">
 
-  <%= image_tag @user.profile_picture %>
-
-</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="profile_header">
+      <div class="profile_picture">
+        <%= image_tag @user.profile_picture.profile_thumb, class: :"profile_avatar" %>
+      </div>
+      <div class="profile_name">
+        <%= @user.first_name %>
+        <%= @user.last_name %>
+      </div>
+      <div class="profile_created">
+        Member since: <%=@user.created_at.strftime('%B %d, %Y') %>
+      </div>
+    </div>
+  </div>
+  <b> <%=@user.first_name %> has: <%=@user.quotes.count%> quotes </b>
+<div class="quote_list">
+<div class="row">
+<% @user.quotes.each do |quote| %>
+    <% if quote.user.present? %>
+    <%= link_to quote, class: :"quote_link" do %>
+      <div class="profile_quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>
+        "<%= quote.citation %>"
+    <% end %>
+      <% if current_user && current_user == quote.user%>
+      <%= link_to 'Edit', edit_quote_path(quote) %>
+      <%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <small> Tags: <%=raw quote.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %> </small>
+    </div>
+    <% end %>
+  </div>
+    <% end %>
+<% end %>
+</div>
+</div>
 </div>

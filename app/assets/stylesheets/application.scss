@@ -21,7 +21,7 @@
 body {
  }
 
- 
+
 
 #quote {
   height: 57em;
@@ -63,7 +63,7 @@ body {
 
 /* Quote Index */
 .img_thumb {
-  max-width: 200px;
+  width: 100%;
 }
 
 .quote_thumb {
@@ -85,4 +85,51 @@ body {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* User Dashboard Styling */
+img.profile_avatar {
+  border-radius: 28em;
+  width: 140px;
+}
+
+.profile_header {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background: #f7f7f7;
+  text-align: center;
+  padding: 10px;
+}
+
+.profile_created {
+  font-style: italic;
+  font-size: 10px;
+}
+
+.profile_quote_thumb {
+  width: 233px;
+  height: 260px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 0;
+  border: 1px solid #cacaca;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.quote_list {
+  margin: 15px;
+}
+/* Quote View Styling */
+.quote_avatar {
+  border-radius: 28em;
+  height: auto;
+  width: 30px;
+}
+
+a.author_link {
+  color: #fff;
+  font-weight: bold;
 }

@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   database: quothme_development
-  username: postgres 
+  username: postgres
   password: password
   host    : localhost
 
@@ -61,7 +61,7 @@ development:
 test:
   <<: *default
   database: quothme_test
-  username: postgres 
+  username: postgres
   password: password
   host    : localhost
 
@@ -89,6 +89,6 @@ production:
   <<: *default
   database: quothme_production
   username: quothme
-  username: postgres 
+  username: postgres
   password: password
   host    : localhost
