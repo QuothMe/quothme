@@ -1,5 +1,5 @@
-## QuoteMe
-__QuoteMe__ is a web application dedicated to creating, sharing, and finding
+## QuothMe
+__QuothMe__ is a web application dedicated to creating, sharing, and finding
 your favorite quotes. The goal is to demonstrate a simple app that can easily
 act as a frontend for quotes from popular cultural figures.
 
@@ -22,7 +22,7 @@ http://0.0.0.0:3000/quotes/
 User accounts are referred to as *authors*. In the future, authors have their own
 quotes shown on their user pages.
 
-#### Quote Schema
+#### Quoth Schema
 the general structure of a quote model is as follows:
 ```
 author: @quote.user.first_name, @quote.user.last_name

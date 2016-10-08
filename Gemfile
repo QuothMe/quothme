@@ -32,6 +32,8 @@ gem 'mini_magick'
 
 gem 'simple_form'
 gem 'friendly_id'
+gem "figaro"
+gem 'rails_12factor', group: :production
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
