@@ -3,7 +3,6 @@
       <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
       <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
-<<<<<<< HEAD
 
 </div>
 
@@ -12,7 +11,7 @@
       <% @quotes.each do |quote| %> 
         <tr>
           <td>
-          <% if quote.user.present? || quote.admin.present?%>
+          <% if quote.user.present? || current_user.admin?%>
 
           <div class="quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>  
 
@@ -40,7 +39,6 @@
           <% end %>
           <% end %>
         </tr>
-=======
 
 </div>
       <% @quotes.each do |quote| %>
@@ -65,12 +63,13 @@
             <% end %>
 
           </div>
->>>>>>> a226bca7903abca54252773a0aeebed5fe6bf9ab
-      <% end %>
+
+          <% end %>
 
   <br>
-   <% if current_user.admin? %>
+   
     <%= link_to 'Create Quote as Admin', new_admin_quote_path, class: "btn btn-danger" %>
-    <% end %>
+   
   <%= link_to'New Quote', new_quote_path, class: "btn btn-default"%>
 </div>
+ <% end %>

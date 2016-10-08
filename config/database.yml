@@ -27,8 +27,6 @@ development:
   username: postgres
   password: password
   host    : localhost
-  port    : 3000
-
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -89,8 +87,6 @@ test:
 production:
   <<: *default
   database: quothme_production
-  username: quothme
   username: postgres
   password: password
   host    : localhost
-  port    : 3000

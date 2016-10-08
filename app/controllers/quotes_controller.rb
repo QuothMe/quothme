@@ -61,8 +61,4 @@ end
     def quote_params
       params.require(:quote).permit(:citation, :image, :tag_list, :author_email, :author_first_name, :author_last_name, :author_username)
     end
-
-
-
-
 end
