@@ -11,7 +11,7 @@
       <% @quotes.each do |quote| %> 
         <tr>
           <td>
-          <% if quote.user.present? || current_user.admin?%>
+          <% if current_user && current_user == quote.user || current_user && current_user.admin?%>
 
           <div class="quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>  
 
@@ -31,7 +31,7 @@
           
           </td>
           <td><%= link_to 'Show', quote_path(quote) %></td>
-          <% if current_user && current_user == quote.user || current_user.admin?%>
+          <% if current_user && current_user == quote.user || current_user && current_user.admin?%>
 
           <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
           <td><%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
