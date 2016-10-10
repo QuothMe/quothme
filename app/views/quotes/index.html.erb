@@ -67,9 +67,12 @@
           <% end %>
 
   <br>
+    <% if current_user && current_user == quote.user || current_user && current_user.admin?%>
    
     <%= link_to 'Create Quote as Admin', new_admin_quote_path, class: "btn btn-danger" %>
    
   <%= link_to'New Quote', new_quote_path, class: "btn btn-default"%>
+
+  <% end %>
 </div>
  <% end %>
