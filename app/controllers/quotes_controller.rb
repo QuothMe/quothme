@@ -37,7 +37,7 @@ def update
     return render text: "Not allowed", status: :forbidden
   end
     @quote.update_attributes(quote_params)
-    redirect_to root_path
+    redirect_to quotes_path
 end
 
   def show 
