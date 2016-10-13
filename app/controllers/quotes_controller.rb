@@ -37,7 +37,7 @@ def update
     return render text: "Not allowed", status: :forbidden
   end
     @quote.update_attributes(quote_params)
-    redirect_to quotes_path
+    redirect_to root_path
 end
 
   def show 
@@ -61,4 +61,8 @@ end
     def quote_params
       params.require(:quote).permit(:citation, :image, :tag_list, :author_email, :author_first_name, :author_last_name, :author_username)
     end
+
+
+
+
 end

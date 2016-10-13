@@ -1,0 +1,28 @@
+<h1> Create user </h1>
+
+<%= form_for @user, url: users_admin_index_path(@user)  do |f| %> 
+
+ <li class="required">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, size: 40, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :email %>
+        <%= f.email_field :email, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :password %>
+        <%= f.password_field :password, size: 40 %>
+      </li>
+      <li class="required">
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation, size: 40 %>
+      </li>
+
+     <%= f.submit "Create Account" %>
+
+<% end %>
