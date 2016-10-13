@@ -59,7 +59,11 @@ group :development do
 end
 
 gem 'acts-as-taggable-on'
-gem 'fog'
+
+group :production do
+  gem 'fog'  
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
