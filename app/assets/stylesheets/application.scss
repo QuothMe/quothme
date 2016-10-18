@@ -255,8 +255,8 @@ img.profile_avatar {
 }
 
 .profile_quote_thumb {
-  width: 233px;
-  height: 260px;
+  width: 100%;
+  height: auto;
   margin-bottom: 10px;
   text-align: center;
   padding: 0;
@@ -293,7 +293,9 @@ a.author_link {
 }
 
 .user_quote_body {
-    display: inline-block;
+  display: inline-block;
+  width: 30%;
+  min-width: 190px;
 }
 
 .profile_subheader {
