@@ -1,6 +1,6 @@
 <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-      <li class="sidebar-brand" href="/">QuothMe</li>
+      <li class="sidebar-brand"> <%= link_to 'QuothMe', root_path %> </li>
         <% if user_signed_in? %>
            <li class="sidebar_avatar"><%= image_tag current_user.profile_picture.profile_thumb, class: :"profile_avatar" %></li>
            <li> <%= link_to 'New Quote +', new_quote_path %> </li>
@@ -10,14 +10,6 @@
            <li> <%= link_to 'Sign In', new_user_session_path %> </li>
            <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
          <% end %>
-
-
-         <div id="tag_cloud">
-           <li><b>Tags</b></li>
-            <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
-              <li><%= link_to tag.name, tag_path(tag.name), class: css_class %></li>
-            <% end %>
-        </div>
 
         </ul>
 </div>
