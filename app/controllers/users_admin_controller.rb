@@ -9,11 +9,12 @@ class UsersAdminController < ApplicationController
     @user = User.new
   end
 
+
   def create
     @user = User.new(user_params)
      if @user.save
         flash[:notice] = "User created"
-        AdminMailer.email_admin(self).deliver
+        AdminMailer.email_user(@user).deliver
       redirect_to root_path
     else
       render :new
