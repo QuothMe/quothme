@@ -22,7 +22,7 @@ class AdminsController < ApplicationController
  end
 
   def ensure_admin!
-    unless current_user.admin?
+    unless current_admin.admin?
       sign_out current_user
 
       redirect_to root_path
