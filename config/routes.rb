@@ -5,14 +5,9 @@ Rails.application.routes.draw do
   root 'quotes#index'
   get 'tags/:tag', to:'quotes#index', as: :tag
   
-  resources :quotes   
-
-  namespace :admin do
-    resources :quotes, only:[:new, :create]
-  end
-
-
+  resources :quotes  
   resources :users, only:[:show]
   resources :users_admin, :controller => 'users_admin'
+  resources :admin, :controller => 'admins'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

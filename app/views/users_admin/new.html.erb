@@ -1,6 +1,6 @@
 <h1> Create user </h1>
 
-<%= form_for @user, url: users_admin_index_path(@user)  do |f| %> 
+<%= simple_form_for @user, url: users_admin_index_path(@user)  do |f| %> 
 
  <li class="required">
         <%= f.label :first_name %>
@@ -26,3 +26,4 @@
      <%= f.submit "Create Account" %>
 
 <% end %>
+

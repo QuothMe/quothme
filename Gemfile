@@ -59,6 +59,7 @@ group :development do
 end
 
 gem 'acts-as-taggable-on'
+gem 'devise_invitable'
 
 group :production do
   gem 'fog'  
