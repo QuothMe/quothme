@@ -13,6 +13,8 @@
         <b><%= @quote.user.first_name %> <%= @quote.user.last_name %></b>
         <% end %>
     </div>
+    <%= render_shareable :buttons=>['twitter', 'facebook', 'tumblr'] %>
+
 
     <div class="quote-actions">
       <% if current_user && current_user == @quote.user %>

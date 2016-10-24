@@ -21,6 +21,15 @@ class UsersAdminController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.friendly.find(params[:id])
+  end
+
+  def update
+    @user = User.friendly.find(params[:id])
+    @user.update_attributes(_params)
+    redirect_to user_path(@user)
+  end
 
 
   private 

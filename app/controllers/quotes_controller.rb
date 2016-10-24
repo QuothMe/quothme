@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
 
-before_action :authenticate_user!, only: [:new, :create, :edit, :update, :delete]
+before_action :ensure_admin!, only: [:edit, :update, :delete]
 
   def index
     if params[:tag].present?
@@ -25,7 +25,7 @@ end
 
   def edit
     @quote = Quote.find(params[:id])
-    unless @quote.user == current_user || current_user.admin? == true
+    unless @quote.user == current_user || current_admin.present?
       return render text: "Not Allowed", status: :forbidden
   end
   
@@ -33,7 +33,7 @@ end
 
 def update
    @quote = Quote.find(params[:id]) 
-   unless @quote.user == current_user || current_user.admin? == true
+   unless @quote.user == current_user || current_admin.present?
     return render text: "Not allowed", status: :forbidden
   end
     @quote.update_attributes(quote_params)
@@ -47,7 +47,7 @@ end
 
     def destroy
     @quote = Quote.find(params[:id])
-    unless @quote.user == current_user || current_user.admin? == true
+    unless @quote.user == current_user || current_admin.present?
     return render text: "Not Allowed", status: :forbidden
    end
     @quote.destroy
@@ -57,7 +57,17 @@ end
   
 
     private
-  
+    
+     def ensure_admin!
+    unless current_admin.present? || current_user && current_user = @quote.user?
+      sign_out current_user
+
+      redirect_to root_path
+
+      return false
+    end
+  end
+
     def quote_params
       params.require(:quote).permit(:citation, :image, :tag_list, :author_email, :author_first_name, :author_last_name, :author_username)
     end
