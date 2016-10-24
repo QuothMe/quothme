@@ -15,6 +15,14 @@
         </div>
 
         <b> <%=@user.quotes.count%> quotes </b>
+
+         <% if current_user && current_user == @user %> 
+          <%= link_to 'Edit Profile', edit_user_registration_path %>
+          <% elsif current_admin && current_admin.present? %>
+          <%= link_to 'Edit User Profile', edit_users_admin_path%>
+         <% end %> 
+      
+  
       </div>
 
 <div id="tag_cloud" class="user_tag_cloud">
@@ -38,7 +46,7 @@
       <div class="profile_quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>
         "<%= quote.citation %>"
     <% end %>
-      <% if current_user && current_user == quote.user%>
+      <% if current_user && current_user == quote.user || current_admin && current_admin.present?%>
       <%= link_to 'Edit', edit_quote_path(quote) %>
       <%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
