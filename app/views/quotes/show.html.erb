@@ -13,7 +13,6 @@
         <b><%= @quote.user.first_name %> <%= @quote.user.last_name %></b>
         <% end %>
     </div>
-    <%= render_shareable :buttons=>['twitter', 'facebook', 'tumblr'] %>
 
 
     <div class="quote-actions">
@@ -22,6 +21,8 @@
       <%= link_to 'Back', quotes_path %>
     </div>
        <% end %>
-
-  </div>
+      </div>
+      <div id="share_bar">
+         <%= render_shareable :buttons=>['twitter', 'facebook', 'tumblr'] %>
+       </div>      
 </div>
