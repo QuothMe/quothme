@@ -1,0 +1,9 @@
+
+<div id="navbar-ticker" class="navbar navbar-default navbar-fixed-top">
+  <div id="tag_cloud">
+    <li><b>Tags</b></li>
+     <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
+       <li><%= link_to tag.name, tag_path(tag.name), class: css_class %></li>
+     <% end %>
+  </div>
+</div>

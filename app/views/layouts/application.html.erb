@@ -10,13 +10,17 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <% if notice.present? %>
-      <p class="alert alert-info"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+    <div id="wrapper">
+      <%= render 'layouts/header' %>
+      <% if notice.present? %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <div id="page-content-wrapper">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

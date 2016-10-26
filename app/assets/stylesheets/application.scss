@@ -24,7 +24,7 @@ body {
 
 
 #quote {
-  height: 57em;
+  min-height: 47.4em;
   max-height: 100em;
   margin-left: auto;
   margin-right: auto;
@@ -42,7 +42,7 @@ body {
 .quote-body {
   z-index: 5;
   position: relative;
-  top: 15em;
+  top: 10em;
   padding: 2em;
   margin-left: auto;
   margin-right: auto;
@@ -68,11 +68,13 @@ body {
 }
 
 .quote_thumb {
-  width: 100%;
-  margin-bottom: 10px;
-  text-align: center;
-  height: auto;
-  min-height: 400px;
+    width: 100%;
+    text-align: center;
+    height: auto;
+    min-height: 400px;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .quote_cite {
@@ -91,10 +93,140 @@ body {
 }
 
 .form_wrapper {
-  width: 70%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3em;
+}
+
+body {
+   overflow-x: hidden;
+}
+
+/* Toggle Styles */
+
+#wrapper {
+   padding-left: 0;
+   -webkit-transition: all 0.5s ease;
+   -moz-transition: all 0.5s ease;
+   -o-transition: all 0.5s ease;
+   transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+   padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: hidden;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#sidebar-wrapper li.sidebar_avatar {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+   width: 250px;
+}
+
+#page-content-wrapper {
+   width: 100%;
+   position: absolute;
+   padding: 0px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+   position: absolute;
+   margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+   position: absolute;
+   top: 0;
+   width: 250px;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+.sidebar-nav li {
+   text-indent: 20px;
+   line-height: 40px;
+}
+
+.sidebar-nav li a {
+   display: block;
+   text-decoration: none;
+   color: #999999;
+}
+
+.sidebar-nav li a:hover {
+   text-decoration: none;
+   color: #fff;
+   background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+   text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+   height: 65px;
+   font-size: 18px;
+   line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+   color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+   color: #fff;
+   background: none;
+}
+
+@media(min-width:768px) {
+   #wrapper {
+       padding-left: 250px;
+   }
+
+   #wrapper.toggled {
+       padding-left: 0;
+   }
+
+   #sidebar-wrapper {
+       width: 250px;
+   }
+
+   #wrapper.toggled #sidebar-wrapper {
+       width: 0;
+   }
+
+   #page-content-wrapper {
+       padding: 0px;
+       position: relative;
+   }
+
+   #wrapper.toggled #page-content-wrapper {
+       position: relative;
+       margin-right: 0;
+   }
 }
 
 /* User Dashboard Styling */
@@ -123,8 +255,8 @@ img.profile_avatar {
 }
 
 .profile_quote_thumb {
-  width: 233px;
-  height: 260px;
+  width: 100%;
+  height: auto;
   margin-bottom: 10px;
   text-align: center;
   padding: 0;
@@ -161,10 +293,19 @@ a.author_link {
 }
 
 .user_quote_body {
-    display: inline-block;
+  display: inline-block;
+  width: 30%;
+  min-width: 190px;
 }
 
 .profile_subheader {
     padding: 10px;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHElEQVQIW2O8du3afy0tLUYGKIAzMARgKjFUAABhBQgFOLoHDgAAAABJRU5ErkJggg== ) repeat;
+}
+
+#share_bar {
+  background: rgba(0, 0, 0, 0.31);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
