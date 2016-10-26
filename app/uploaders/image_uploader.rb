@@ -15,7 +15,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     config.storage = :s3
   end
 end
-    end
+    
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
