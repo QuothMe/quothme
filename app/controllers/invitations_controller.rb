@@ -8,6 +8,7 @@ class InvitationsController < Devise::InvitationsController
   else
     redirect_to root_path, error: t('invitation.not_accepted')
   end
+end
 
 
 
