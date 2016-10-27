@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 gem 'carrierwave'
+gem 'carrierwave-aws'
 gem 'mini_magick'
 
 gem 'simple_form'
