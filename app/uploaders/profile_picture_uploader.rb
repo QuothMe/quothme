@@ -7,7 +7,7 @@ class ProfilePictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   
-      storage = :aws
+      storage = :fog
     
 
   # Override the directory where uploaded files will be stored.
