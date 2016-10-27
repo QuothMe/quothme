@@ -1,8 +1,6 @@
 CarrierWave.configure do |config|
 
-   if Rails.env.development? || Rails.env.test?
-    config.storage = :file
-    else
+   
       config.storage = :aws
     config.aws_credentials = {
       :provider               => 'AWS',                        # required
