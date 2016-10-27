@@ -10,6 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   
       storage :aws
+      storage :file
     
 
   # Override the directory where uploaded files will be stored.
