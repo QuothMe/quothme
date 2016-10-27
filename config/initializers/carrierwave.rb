@@ -10,5 +10,5 @@ CarrierWave.configure do |config|
 
 
   config.aws_directory  = ENV["AWS_BUCKET"]                     # required
-  end
+
 end
