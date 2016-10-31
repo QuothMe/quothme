@@ -47,8 +47,11 @@ gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -65,6 +68,8 @@ gem 'devise_invitable'
 group :production do
   gem 'fog'  
 end
+
+
 
 gem 'shareable'
 
