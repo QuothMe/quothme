@@ -1,16 +1,20 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.3.0
-
+- 2.3.0
 services:
-  - redis-server
-
+- redis-server
 addons:
   postgresql: 9.3
-
 before_script:
-  - bundle exec rake db:create db:migrate db:seed
-
+- bundle exec rake db:create db:migrate db:seed
 script:
-  - bundle exec rspec
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: F0XWAbnMq3Aod10i9JP/Jhwhc6z0gqBB5RmrD9bxbzHqDQ8WTpKdQWmMhVh2jQJgMY6Xn6M5Uis4YsGQPWNGxz9jAvC4y66T7qrRJ3YtsrJSek12t4vnV0BNcWDPXaWgbCiRnj+JM21lC9iZTUEFb8/6wUww6N1QUc16tQBTe5vBY4kfHOX9kEfmGQ4yZ11K5Vbg/o2Pued9bvXq8WoQn2pqMpeBIg/Y1xzlzyNqBIVmrsDNm1yL8yBBH1LkOF49/Lz2UuyDBsm/uXn4gAGmAx0p0jhb0Yj8v83v/cfbfa4fm6EjFEXgac3Nb6T7PvZLtej0fIMBhKbVEQauXNeEAkNH8E89qCZd8kkQUHCZM+STKP91l/gxdmHk1f/ev6qeT4ac4I1hj1VZcnRcTUuQJ/h1C9u+7h3Dj1VPU1ri5IE0T4nKzqALYadApGh1WBjKwieXW+ra9x6Kj8isiKQEnEQZp5fh04djCfSlxFrnfhL8NP68DM7hc75ltIkWOcSBzw8VxCmCv+vN+ZicoOS68MNqw+Zyt3s5bQfiHZHusjgy2jIoe6U30upNFW3tyEebAbO+6iRwqUn1KBOn9Z/jryTEds8LZ455BDirJucuz/97BcCRBo87iHbcQ+eHVpDATsatm/hhCb6LADRaAGKFG5YS24YHkVDyHhKjQoIjZrw=
+  app: quothme
+  on:
+    repo: QuothMe/quothme
+    branch: rspec
