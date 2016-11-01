@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   resources :users, only:[:show]
   resources :users_admin, :controller => 'users_admin'
   resources :admin, :controller => 'admins'
+
+  namespace :api, path:'/', constraints: {subdomain: 'api'} do
+    resources :quotes
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
