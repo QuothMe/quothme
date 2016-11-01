@@ -1,4 +1,4 @@
-<h1> Hi </h1>
+
 <% @quotes.each do |quote| %>
           <% if quote.user.present? %>
           <%= link_to quote_path(quote), class: :"quote_link" do %>
