@@ -1,6 +1,4 @@
 language: ruby
-cache: bundler
-rvm:
 - 2.3.0
 services:
 - redis-server
@@ -10,6 +8,7 @@ before_script:
 - bundle exec rake db:create db:migrate db:seed
 script:
 - bundle exec rspec
+
 deploy:
   provider: heroku
   api_key:
