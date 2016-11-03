@@ -35,6 +35,9 @@ FactoryGirl.define do
     password_confirmation 'supersecretpassword'
   end
 
+  factory :tag do
+    association :quote
+  end
      
 
 
