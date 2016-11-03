@@ -47,7 +47,8 @@ gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec'
   gem 'factory_girl_rails'
 
 end

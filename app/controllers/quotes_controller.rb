@@ -1,6 +1,7 @@
 class QuotesController < ApplicationController
 
-before_action :ensure_admin!, only: [:edit, :update, :delete]
+before_action :authenticate_user!, only:[:edit, :update, :delete, :new]
+before_action :ensure_admin!, only: [:edit, :update, :delete, :new]
 
   def index
     if params[:tag].present?

@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_filter :ensure_admin!, only:[:new,:create, :edit, :update, :delete]
+  before_action :ensure_admin!, only:[:new,:create, :edit, :update, :delete]
 
   def index
     @admins = Admin.all

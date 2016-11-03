@@ -24,6 +24,15 @@ FactoryGirl.define do
 
   end
 
+  factory :admin do
+
+    sequence :email do |n|
+      'adminemail#{n}@gmail.com'
+    end
+    password 'supersecretpassword'
+    password_confirmation 'supersecretpassword'
+  end
+
 
 
 end

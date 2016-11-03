@@ -302,6 +302,10 @@ GEM
       trollop (~> 2.1)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -391,7 +395,8 @@ DEPENDENCIES
   rails (~> 5.0.0)
   rails_12factor
   railties
-  rspec-rails
+  rspec
+  rspec-rails (~> 3.5)
   sass-rails (>= 3.2)
   shareable
   simple_form
