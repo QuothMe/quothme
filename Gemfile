@@ -13,6 +13,8 @@ gem 'railties'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'sprockets'
+gem 'font-awesome-sass', '~> 4.7.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -66,7 +68,7 @@ gem 'acts-as-taggable-on'
 gem 'devise_invitable'
 
 group :production do
-  gem 'fog'  
+  gem 'fog'
 end
 
 
