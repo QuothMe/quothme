@@ -1,10 +1,8 @@
 FactoryGirl.define do 
   factory :quote do
     citation 'Quothed'
-      sequence :tag_id do |n|
-      '#{n}'
-    end
     association :user
+    tag_list "tags"
 
     
     end
@@ -37,6 +35,7 @@ FactoryGirl.define do
     password_confirmation 'supersecretpassword'
   end
 
+     
 
 
 end
