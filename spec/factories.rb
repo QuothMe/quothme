@@ -1,7 +1,11 @@
 FactoryGirl.define do 
   factory :quote do
     citation 'Quothed'
+      sequence :tag_id do |n|
+      '#{n}'
+    end
     association :user
+
     
     end
 
