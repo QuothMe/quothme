@@ -3,7 +3,7 @@
       <li class="sidebar-brand", >QuothMe</li>
         <% if user_signed_in? %>
            <li class="sidebar_avatar"><%= image_tag current_user.profile_picture.profile_thumb, class: :"profile_avatar" %></li>
-           <li> <%= link_to 'New Quote +', new_quote_path %> </li>
+           <li> <%= link_to 'New Quote', new_quote_path %> </li>
            <li> <%= link_to 'My Profile', user_path(current_user) %> </li>
            <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
         <% elsif admin_signed_in?%>
@@ -17,7 +17,7 @@
 
 
          <div id="tag_cloud">
-           <li><b>Tags</b></li>
+           <li><i class="fa fa-tags"></i><b>Tags</b></li>
             <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
               <li><%= link_to tag.name, tag_path(tag.name), class: css_class %></li>
             <% end %>
