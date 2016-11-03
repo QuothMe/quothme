@@ -10,6 +10,7 @@ FactoryGirl.define do
       sequence :quote do |n|
         'tag #{n}'
       end
+      association :taggings
     end
 
   factory :user do
