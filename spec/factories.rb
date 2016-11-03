@@ -2,9 +2,14 @@ FactoryGirl.define do
   factory :quote do
     citation 'Quothed'
     association :user
-    tag_list "tags"
 
     
+    end
+
+    factory :tag, :class => ActsAsTaggableOn::Tag do
+      sequence :quote do |n|
+        'tag #{n}'
+      end
     end
 
   factory :user do
@@ -35,10 +40,7 @@ FactoryGirl.define do
     password_confirmation 'supersecretpassword'
   end
 
-  factory :tag do
-    association :quote
-  end
-     
+
 
 
 end
