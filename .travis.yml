@@ -7,8 +7,8 @@ services:
 addons:
   postgresql: 9.3
 before_script:
-- bundle exec rake db:test:prepare
-
+- bundle exec rake db:schema:load
+- bundle exec rake db:migrate
 script:
 - bundle exec rspec
 deploy:
