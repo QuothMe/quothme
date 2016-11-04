@@ -2,26 +2,13 @@ FactoryGirl.define do
   factory :quote do
     citation 'Quothed'
     association :user
-
-
-    
-    end
-
-    factory :tag, :class => ActsAsTaggableOn::Tag do |t|
-      t.name 'Tag Name'  
-    end
-
-    factory :tagging, class: ActsAsTaggableOn::Tagging do
-    sequence(:tag) { |n| FactoryGirl.create(:tag, name: "tagging#{n}") }
-    tagger { FactoryGirl.create(:quote) }
-    context :tags
   end
 
 
   factory :user do
     sequence :user_id do |n|
       "#{n}"
-    end
+  end
     sequence :email do |n|
       "email#{n}@email.com"
     end

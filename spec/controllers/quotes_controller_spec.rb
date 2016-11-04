@@ -8,7 +8,7 @@ RSpec.describe QuotesController, type: :controller do
 
       user = FactoryGirl.create(:user)
       quote = FactoryGirl.create(:quote)
-      tag_list =double(:tag_list)
+      
     
       sign_in user
       post :create, quote_id: quote.id, quote: {citation: 'And then they fell'}
