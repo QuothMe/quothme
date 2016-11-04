@@ -7,10 +7,10 @@ RSpec.describe QuotesController, type: :controller do
       it 'Should let users create quotes' do
 
       user = FactoryGirl.create(:user)
-      quote = FactoryGirl.create(:quote)
+      quote = FactoryGirl.create(:quote, :tag)
     
       sign_in user
-      post :create, tag: 'tag', quote_id: quote.id, quote: {citation: 'And then they fell'}
+      post :create, tag_id: tag.id, quote_id: quote.id, quote: {citation: 'And then they fell'}
       expect(response).to redirect_to root_path
     end
   end
