@@ -1,26 +1,21 @@
 language: ruby
-<<<<<<< HEAD
+
 cache: bundler
 rvm:
-=======
->>>>>>> master
 - 2.3.0
 services:
 - redis-server
 addons:
   postgresql: 9.3
 before_script:
-<<<<<<< HEAD
 - bundle exec rake db:test:prepare
 
 script:
 - bundle exec rspec
-=======
 - bundle exec rake db:create db:migrate db:seed
 script:
 - bundle exec rspec
 
->>>>>>> master
 deploy:
   provider: heroku
   api_key:
