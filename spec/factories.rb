@@ -1,17 +1,15 @@
 FactoryGirl.define do 
   factory :quote do
     citation 'Quothed'
-
-    association :user, :tag
+    sequence(:tag) {|t| "Tag #{t}"}
+    association :user
 
 
     
     end
 
     factory :tag, :class => ActsAsTaggableOn::Tag do
-      sequence :quote do |n|
-        'tag #{n}'
-      end
+      
       association :quote
     end
 
