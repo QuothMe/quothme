@@ -23,7 +23,6 @@ deploy:
   app: quothme
   on:
     repo: QuothMe/quothme
-    tags: true
     all_branches: true
 
-    
+
