@@ -14,15 +14,15 @@
           Member since: <%=@user.created_at.strftime('%B %d, %Y') %>
         </div>
 
-        <b> <%=@user.quotes.count%> quotes </b>
+        <b> <i class="fa fa-comment"> <%=@user.quotes.count%> </b></i>
 
-         <% if current_user && current_user == @user %> 
+         <% if current_user && current_user == @user %>
           <%= link_to 'Edit Profile', edit_user_registration_path %>
           <% elsif current_admin && current_admin.present? %>
           <%= link_to 'Edit User Profile', edit_users_admin_path%>
-         <% end %> 
-      
-  
+         <% end %>
+
+
       </div>
 
 <div id="tag_cloud" class="user_tag_cloud">

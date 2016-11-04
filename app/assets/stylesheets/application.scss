@@ -16,6 +16,8 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 
 body {
@@ -24,14 +26,14 @@ body {
 
 
 #quote {
-  min-height: 47.4em;
+  min-height: 55em;
   max-height: 100em;
   margin-left: auto;
   margin-right: auto;
   color: #fff;
   padding: 0;
-  width: 100%;
   overflow: hidden;
+  position: fixed;
 }
 
 
@@ -125,17 +127,19 @@ body {
     height: 100%;
     margin-left: -250px;
     overflow-y: hidden;
-    background: #000;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-}
+    color: #888;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJ0lEQVQYV2PMzs7+f/r0aQYYYDQzM/sP5zEwMMAFTE1NGUAqMVQAAPvfDIniWS1wAAAAAElFTkSuQmCC) repeat;
+  }
 
 #sidebar-wrapper li.sidebar_avatar {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  margin-top: 4em;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -190,6 +194,7 @@ body {
    height: 65px;
    font-size: 18px;
    line-height: 60px;
+   position: fixed;
 }
 
 .sidebar-nav > .sidebar-brand a {

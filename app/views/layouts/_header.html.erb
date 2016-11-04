@@ -1,23 +1,50 @@
 <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-      <li class="sidebar-brand", >QuothMe</li>
+      <li class="sidebar-brand"><%= link_to "QuothMe", root_path%></li>
         <% if user_signed_in? %>
            <li class="sidebar_avatar"><%= image_tag current_user.profile_picture.profile_thumb, class: :"profile_avatar" %></li>
-           <li> <%= link_to 'New Quote +', new_quote_path %> </li>
-           <li> <%= link_to 'My Profile', user_path(current_user) %> </li>
-           <li> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </li>
+
+           <li> <%= link_to  new_quote_path do %>
+             <i class="fa fa-plus"></i>
+              New Quote
+             <% end %>
+           </li>
+
+           <li> <%= link_to user_path(current_user) do %>
+             <i class="fa fa-user-circle"></i>
+             My Profile
+             <% end %>
+           </li>
+
+           <li> <%= link_to destroy_user_session_path, method: :delete do %>
+             <i class="fa fa-power-off"></i>
+            Sign Out
+            <% end %>
+           </li>
+
         <% elsif admin_signed_in?%>
           <li> <%= link_to 'Logged in as Admin' %> </li>
           <%=  link_to 'Create User', new_users_admin_path, class: 'btn btn-danger' %>
           <%=  link_to 'Create Admin', new_admin_path, class: 'btn btn-primary' %>
         <% else %>
-           <li> <%= link_to 'Sign In', new_user_session_path %> </li>
-           <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
+
+           <li> <%= link_to new_user_session_path do %>
+             <i class="fa fa-key"></i>
+             Sign In
+             <% end %>
+           </li>
+
+
+           <li> <%= link_to new_user_registration_path do %>
+             <i class="fa fa-user-plus"></i>
+             Sign Up
+             <% end %>
+           </li>
          <% end %>
 
 
          <div id="tag_cloud">
-           <li><b>Tags</b></li>
+           <li><i class="fa fa-tags"></i><b>Tags</b></li>
             <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
               <li><%= link_to tag.name, tag_path(tag.name), class: css_class %></li>
             <% end %>
