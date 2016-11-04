@@ -8,9 +8,15 @@ FactoryGirl.define do
     
     end
 
-    factory :tag, :class => ActsAsTaggableOn::Tag do
-      association :quote, factory: :quote      
+    factory :tag, :class => ActsAsTaggableOn::Tag do |t|
+      t.name 'Tag Name'  
     end
+
+    factory :tagging, class: ActsAsTaggableOn::Tagging do
+    sequence(:tag) { |n| FactoryGirl.create(:tag, name: "tagging#{n}") }
+    tagger { FactoryGirl.create(:quote) }
+    context :tags
+  end
 
 
   factory :user do
