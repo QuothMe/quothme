@@ -9,7 +9,7 @@ FactoryGirl.define do
     end
 
     factory :tag, :class => ActsAsTaggableOn::Tag do
-      
+      quote
       association :quote
     end
 
