@@ -1,6 +1,7 @@
 FactoryGirl.define do 
   factory :quote do
     citation 'Quothed'
+    tag_list [create(:tag), create(:tag)]
     association :user
 
 
@@ -11,11 +12,6 @@ FactoryGirl.define do
       association :quote, factory: :quote      
     end
 
-    factory :tagging, class: ActsAsTaggableOn::Tagging do
-      tag
-      association :tag, factory: :quote
-      context 'tags'  
-   end
 
   factory :user do
     sequence :user_id do |n|
