@@ -7,7 +7,7 @@ RSpec.describe QuotesController, type: :controller do
       it 'Should let users create quotes' do
 
       user = FactoryGirl.create(:user)
-      quote = FactoryGirl.create(:quote)
+      quote = FactoryGirl.create(:quote,tag: tag)
     
       sign_in user
       post :create, quote_id: quote.id, tag_id: tag.id, quote: {citation: 'And then they fell'}
