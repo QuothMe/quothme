@@ -1,10 +1,17 @@
 language: ruby
+
+cache: bundler
+rvm:
 - 2.3.0
 services:
 - redis-server
 addons:
   postgresql: 9.3
 before_script:
+- bundle exec rake db:test:prepare
+
+script:
+- bundle exec rspec
 - bundle exec rake db:create db:migrate db:seed
 script:
 - bundle exec rspec

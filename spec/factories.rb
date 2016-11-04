@@ -2,13 +2,13 @@ FactoryGirl.define do
   factory :quote do
     citation 'Quothed'
     association :user
-    
-    end
+  end
+
 
   factory :user do
     sequence :user_id do |n|
       "#{n}"
-    end
+  end
     sequence :email do |n|
       "email#{n}@email.com"
     end
@@ -23,6 +23,16 @@ FactoryGirl.define do
 
 
   end
+
+  factory :admin do
+
+    sequence :email do |n|
+      'adminemail#{n}@gmail.com'
+    end
+    password 'supersecretpassword'
+    password_confirmation 'supersecretpassword'
+  end
+
 
 
 
