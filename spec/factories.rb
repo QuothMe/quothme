@@ -10,18 +10,14 @@ FactoryGirl.define do
       sequence :quote do |n|
         'tag #{n}'
       end
-
-
-      
     end
 
     factory :tagging, class: ActsAsTaggableOn::Tagging do
       tag
       association :tagging, factory: :quote
-      context 'tags'
-    end
-  end
-  
+      context 'tags'  
+   end
+
   factory :user do
     sequence :user_id do |n|
       "#{n}"
