@@ -15,7 +15,7 @@ FactoryGirl.define do
 
     factory :tagging, class: ActsAsTaggableOn::Tagging do
       tag
-      association :tagging, factory: :quote
+      association :tag, factory: :quote
       context 'tags'  
    end
 
