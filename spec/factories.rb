@@ -1,7 +1,7 @@
 FactoryGirl.define do 
   factory :quote do
     citation 'Quothed'
-    association :user
+    association :user, :tag
 
     
     end
