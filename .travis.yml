@@ -23,4 +23,7 @@ deploy:
   app: quothme
   on:
     repo: QuothMe/quothme
-    branch: rspec
+    tags: true
+    all_branches: true
+
+    
