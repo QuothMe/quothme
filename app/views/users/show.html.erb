@@ -10,19 +10,19 @@
           <%= @user.first_name %>
           <%= @user.last_name %>
         </div>
-        <div class="following">
+        <div id="following">
           <%= link_to "Following", following_user_path(@user)%> 
           <strong>  
             <%= @user.following.count %>
           </strong>
         </div>
 
-        <div class="followers">
+        <div id="followers">
            <%= link_to "Followers", followers_user_path(@user)%>
            <%= @user.followers.count %>
         </div>
 
-        <% unless current_user ==@user %>
+        <% unless current_user == @user %>
           <div id="follow_form">
             <% if current_user.following?(@user) %>
               <%= render 'unfollow_form' %>
@@ -30,7 +30,7 @@
               <%= render 'follow_form' %>    
             <% end %> 
           </div>
-         <% end %>
+        <% end %>
         
 
 
