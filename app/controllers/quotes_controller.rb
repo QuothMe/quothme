@@ -1,7 +1,7 @@
 class QuotesController < ApplicationController
 
 before_action :authenticate_user!, only:[:edit, :update, :delete, :new]
-before_action :ensure_admin!, only: [:edit, :update, :delete, :new]
+#before_action :ensure_admin!, only: [:edit, :update, :delete, :new]
 
   def index
     if params[:tag].present?
@@ -59,15 +59,15 @@ end
 
     private
     
-     def ensure_admin!
-    unless current_admin.present? || current_user && current_user = @quote.user?
-      sign_out current_user
+  #    def ensure_admin!
+  #   unless current_admin.present? || current_user && current_user = @quote.user?
+  #     sign_out current_user
 
-      redirect_to root_path
+  #     redirect_to root_path
 
-      return false
-    end
-  end
+  #     return false
+  #   end
+  # end
 
     def quote_params
       params.require(:quote).permit(:citation, :image, :tag_list, :author_email, :author_first_name, :author_last_name, :author_username)
