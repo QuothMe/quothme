@@ -76,6 +76,7 @@ end
 
 
 gem 'shareable'
+gem 'public_activity'
 
 
 
