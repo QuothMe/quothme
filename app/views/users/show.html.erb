@@ -22,15 +22,17 @@
            <%= @user.followers.count %>
         </div>
 
-        <% unless current_user == @user %>
-          <div id="follow_form">
-            <% if current_user.following?(@user) %>
-              <%= render 'unfollow_form' %>
-            <% else %>
-              <%= render 'follow_form' %>    
-            <% end %> 
-          </div>
-        <% end %>
+        <% if user_signed_in %>
+          <% unless current_user == @user %>
+            <div id="follow_form">
+              <% if current_user.following?(@user) %>
+                <%= render 'unfollow_form' %>
+              <% else %>
+                <%= render 'follow_form' %>    
+              <% end %> 
+            </div>
+          <% end %>
+        <% end %> 
         
 
 
