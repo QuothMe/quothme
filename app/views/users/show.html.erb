@@ -10,6 +10,31 @@
           <%= @user.first_name %>
           <%= @user.last_name %>
         </div>
+        <div id="following">
+          <%= link_to "Following", following_user_path(@user)%> 
+          <strong>  
+            <%= @user.following.count %>
+          </strong>
+        </div>
+
+        <div id="followers">
+           <%= link_to "Followers", followers_user_path(@user)%>
+           <%= @user.followers.count %>
+        </div>
+
+        <% unless current_user == @user %>
+          <div id="follow_form">
+            <% if current_user.following?(@user) %>
+              <%= render 'unfollow_form' %>
+            <% else %>
+              <%= render 'follow_form' %>    
+            <% end %> 
+          </div>
+        <% end %>
+        
+
+
+
         <div class="profile_created">
           Member since: <%=@user.created_at.strftime('%B %d, %Y') %>
         </div>
