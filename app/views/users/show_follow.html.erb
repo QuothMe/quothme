@@ -1,0 +1,13 @@
+<h1> <%= @user.first_name %> </h1>
+<h1> <%= @user.last_name%> </h1>
+<%= link_to 'View Profile', @user %>
+
+<% if @users.any? %>
+	<div class="follow_avatars">
+		<% @users.each do |user| %>
+			<%= user.username %>
+			<%= image_tag user.profile_picture.profile_thumb, class: :"profile_avatar" %>
+	</div>
+
+	<% end %>
+<% end %>

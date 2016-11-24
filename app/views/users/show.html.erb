@@ -22,7 +22,7 @@
            <%= @user.followers.count %>
         </div>
 
-        <% if user_signed_in %>
+        <% if user_signed_in? %>
           <% unless current_user == @user %>
             <div id="follow_form">
               <% if current_user.following?(@user) %>
