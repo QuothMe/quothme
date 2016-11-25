@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
+	include PublicActivity::StoreController
+	
+
  before_action :configure_permitted_parameters, if: :devise_controller?
-  protect_from_forgery with: :exception
+ protect_from_forgery with: :exception
+
+
 
    def configure_permitted_parameters
     #registration_params = [:email, :password, :password_confirmation, :name, :type]
@@ -10,8 +15,6 @@ class ApplicationController < ActionController::Base
 
   def account_update
   end
-
-  
 
   
 
