@@ -2,6 +2,9 @@ class QuotesController < ApplicationController
 
 before_action :authenticate_user!, only:[:edit, :update, :delete, :new]
 #before_action :ensure_admin!, only: [:edit, :update, :delete, :new]
+before_action :load_activities, only: [:index, :show, :new, :edit]
+
+
 
   def index
     if params[:tag].present?
@@ -73,7 +76,10 @@ end
       params.require(:quote).permit(:citation, :image, :tag_list, :author_email, :author_first_name, :author_last_name, :author_username)
     end
 
-
+    
+  def load_activities 
+     @activities = PublicActivity::Activity.order('created_at DESC')
+  end
 
 
 end

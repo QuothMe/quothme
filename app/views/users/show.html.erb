@@ -33,9 +33,7 @@
             </div>
           <% end %>
         <% end %> 
-        
-
-
+      
 
         <div class="profile_created">
           Member since: <%=@user.created_at.strftime('%B %d, %Y') %>
@@ -49,7 +47,6 @@
           <%= link_to 'Edit User Profile', edit_users_admin_path%>
          <% end %>
 
-
       </div>
 
 <div id="tag_cloud" class="user_tag_cloud">
@@ -62,7 +59,10 @@
     </div>
   </div>
 
-
+  <div class=col-sm-9>
+   <%= render 'shared/activities'%>
+  </div>
+        
 
 <div class="quote_list">
 <div class="row">

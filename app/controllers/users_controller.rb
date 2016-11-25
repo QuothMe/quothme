@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :load_activities, only: [:index, :show, :new, :edit]
 
   def show
     @user = User.friendly.find(params[:id])
     @users = User.includes(:quotes, :tags)
+
   end
 
   def following
@@ -23,5 +25,8 @@ class UsersController < ApplicationController
 
   private
 
+  def load_activities
+        @activities = PublicActivity::Activity.order('created_at DESC').where(owner_id: current_user.following)
+  end
 
 end
