@@ -69,7 +69,7 @@ gem 'acts-as-taggable-on'
 gem 'devise_invitable'
 
 group :production do
-  gem 'rails_12factor',
+  gem 'rails_12factor'
   gem 'fog'
 end
 
