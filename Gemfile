@@ -71,7 +71,6 @@ gem 'devise_invitable'
 group :production do
   gem 'rails_12factor'
   gem 'fog'
-  gem 'pg'
 end
 
 
