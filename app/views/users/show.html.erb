@@ -49,19 +49,21 @@
 
       </div>
 
-<div id="tag_cloud" class="user_tag_cloud">
-   <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-   <% end %>
+  <div id="tag_cloud" class="user_tag_cloud">
+     <% tag_cloud Quote.tag_counts, %w{s m l} do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+     <% end %>
 
-</div>
+  </div>
 
     </div>
   </div>
 
+
   <div class=col-sm-9>
    <%= render 'shared/activities'%>
   </div>
+<% end %>
         
 
 <div class="quote_list">

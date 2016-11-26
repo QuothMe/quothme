@@ -78,8 +78,9 @@ end
 
     
   def load_activities 
+  if @activities.present? 
      @activities = PublicActivity::Activity.order('created_at DESC').where(owner_id: current_user.following)
   end
-
+end
 
 end
