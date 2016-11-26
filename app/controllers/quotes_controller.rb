@@ -77,9 +77,9 @@ end
     end
 
     
-  def load_activities 
-     @activities = PublicActivity::Activity.order('created_at DESC')
-  end
+    def load_activities 
+       @activities = PublicActivity::Activity.order('created_at DESC')
+    end
 
 
 end
