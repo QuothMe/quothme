@@ -4,8 +4,7 @@ class Quote < ApplicationRecord
 
   include PublicActivity::Model
   tracked
-  
-  PublicActivity.enabled = false
+
 
 
   tracked owner: Proc.new { |controller, model| controller.current_user}
