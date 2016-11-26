@@ -25,7 +25,7 @@ development:
   <<: *default
   database: quothme_development
   username: postgres
-  password: password
+  password: 
   host    : localhost
 
 
