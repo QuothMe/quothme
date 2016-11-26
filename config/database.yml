@@ -91,3 +91,4 @@ production:
   database: quothme_production
   username: postgres
   password: password
+  host    : localhost
