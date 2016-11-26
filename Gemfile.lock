@@ -343,6 +343,9 @@ GEM
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    social-share-button (0.8.5)
+      coffee-rails
+      sass-rails
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -409,6 +412,7 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   shareable
   simple_form
+  social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets
