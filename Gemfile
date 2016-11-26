@@ -73,8 +73,6 @@ group :production do
   gem 'fog'
 end
 
-
-
 gem 'shareable'
 gem 'public_activity'
 
