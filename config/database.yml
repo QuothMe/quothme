@@ -90,4 +90,5 @@ production:
   <<: *default
   database: quothme_production
   username: postgres
-  host: localhost
+  password: password
+  host    : localhost
