@@ -1,0 +1,7 @@
+javascript:
+  main:
+    require:
+      - html2canvas
+  secondary:
+    external:
+      - html2canvas
