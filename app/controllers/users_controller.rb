@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   private
 
   def load_activities
-        @activities = PublicActivity::Activity.order('created_at DESC').where(owner_id: current_user.following)
+        @activities = PublicActivity::Activity.order('created_at DESC').where(owner_id: current_user.following_ids)
   end
 
 end

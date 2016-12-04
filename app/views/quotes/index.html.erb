@@ -1,3 +1,5 @@
+
+
 <% @quotes.each do |quote| %>
           <% if quote.user.present? %>
           <%= link_to quote_path(quote), class: :"quote_link" do %>
@@ -21,8 +23,10 @@
           </div>
  <% end %>
 
+  
   <div class=col-sm-9>
     <h1 class='text-center'> What's New </h1>
     <%= render 'shared/activities'%>          
   </div>
 
+ 
