@@ -1,4 +1,5 @@
 <%= simple_form_for @quote do |f| %>
+<div id="form-wrap">
   <% if @quote.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
@@ -10,20 +11,23 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="form-group">
-    <%= f.label :tags_list %>
-    <%= f.text_field :tag_list, class: "form-control"%>
+
+  <div class="field-image">
+    <%= f.input :image, class: "btn"%>
   </div>
 
   <div class="field">
     <%= f.input :citation %>
   </div>
-  <div class="field">
-    <%= f.input :image %>
+
+  <div class="form-group">
+    <%= f.label :tags_list %>
+    <%= f.text_field :tag_list, class: "form-control"%>
   </div>
 
-  <div class="actions">
-    <%= f.button :submit %>
+  <div class="tools">
+    <%= f.button :submit, class: "btn-success" %>
+  <%= link_to 'Cancel', quotes_path, class: :"btn btn-danger actions" %>
   </div>
+</div>
 <% end %>
