@@ -11,8 +11,8 @@
           <%= @user.last_name %>
         </div>
         <div id="following">
-          <%= link_to "Following", following_user_path(@user)%> 
-          <strong>  
+          <%= link_to "Following", following_user_path(@user)%>
+          <strong>
             <%= @user.following.count %>
           </strong>
         </div>
@@ -28,12 +28,12 @@
               <% if current_user.following?(@user) %>
                 <%= render 'unfollow_form' %>
               <% else %>
-                <%= render 'follow_form' %>    
-              <% end %> 
+                <%= render 'follow_form' %>
+              <% end %>
             </div>
           <% end %>
-        <% end %> 
-      
+        <% end %>
+
 
         <div class="profile_created">
           Member since: <%=@user.created_at.strftime('%B %d, %Y') %>
@@ -63,7 +63,7 @@
   <div class=col-sm-9>
    <%= render 'shared/activities'%>
   </div>
-        
+
 
 <div class="quote_list">
 <div class="row">
@@ -71,14 +71,11 @@
   <div class="user_quote_body">
     <% if quote.user.present? %>
     <%= link_to quote, class: :"quote_link" do %>
-      <div class="profile_quote_thumb"><%= image_tag quote.image, class:'img_thumb' %>
-        "<%= quote.citation %>"
+      <div class="profile_quote_thumb" style="background:url(<%= quote.image.url -%>); background-size:cover; background-attachment: fixed;>
+        <%= quote.citation %>
+        <%= image_tag quote.image, class:'img_thumb' %>
+        </div>
     <% end %>
-      <% if current_user && current_user == quote.user || current_admin && current_admin.present?%>
-      <%= link_to 'Edit', edit_quote_path(quote) %>
-      <%= link_to 'Destroy', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-      <small> Tags: <%=raw quote.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %> </small>
     </div>
   </div>
     <% end %>
