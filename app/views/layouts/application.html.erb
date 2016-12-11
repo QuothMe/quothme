@@ -18,7 +18,15 @@
       <% if alert.present? %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <div id="page-content-wrapper">
+      <div id="page-content-wrapper"> 
+
+      <div class="quoth_form"%> 
+        <%= render 'shared/quoth_it' %>
+      </div>
+
+  
+
+
         <%= yield %>
 
       </div>
