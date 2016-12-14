@@ -14,9 +14,6 @@
         <% end %>
     </div>
 
-       <%= social_share_button_tag(@quote.citation, :image => @quote.image) %>
-
-
 
     <div class="quote-actions">
       <% if current_user && current_user == @quote.user %>
@@ -28,3 +25,5 @@
 
 
 </div>
+
+
