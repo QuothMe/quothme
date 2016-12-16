@@ -25,9 +25,8 @@
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
       <div id="page-content-wrapper">
-      <% if content_for?(:head) %>
-        <%= yield(:head) %>
-      <% end %>
+        <%= yield %>
+      
 
       </div>
     </div>
