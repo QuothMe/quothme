@@ -77,6 +77,8 @@ gem 'shareable'
 gem 'public_activity'
 gem 'social-share-button'
 gem "browserify-rails"
+gem 'metamagic'
+
 
 
 
