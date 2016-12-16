@@ -29,3 +29,8 @@
     <%= social_share_button_tag(@quote.citation, :image => @quote.image) %>
   </div>
 </div>
+
+
+<% twitter card: 'summary_large_image',
+  description: @quote.citation,
+  image: @quote.image%>
