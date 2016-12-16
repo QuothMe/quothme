@@ -1,6 +1,12 @@
 
 
 <% @quotes.each do |quote| %>
+  <% content_for :head do %>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name="twitter:site" content='<%=@QuothMe%>'/>
+    <meta name="twitter:creator" content="<%=quote.user.first_name%>"/>
+    <meta name="twitter:img:src" content="<%=quote.image.url%>" />
+  <% end %>
           <% if quote.user.present? %>
           <%= link_to quote_path(quote), class: :"quote_link" do %>
           <div class="quote_thumb", style="background:url(<%= quote.image.url -%>); background-size:cover;">

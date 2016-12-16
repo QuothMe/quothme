@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <% twitter site: '@QuothMe' %>
     <%= metamagic %>
+    
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    
+
   </head>
 
   <body>
@@ -20,16 +24,10 @@
       <% if alert.present? %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-      <div id="page-content-wrapper"> 
-
-      <div class="quoth_form"%> 
-        <%= render 'shared/quoth_it' %>
-      </div>
-
-  
-
-
-        <%= yield %>
+      <div id="page-content-wrapper">
+      <% if content_for?(:head) %>
+        <%= yield(:head) %>
+      <% end %>
 
       </div>
     </div>

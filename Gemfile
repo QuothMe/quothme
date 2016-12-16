@@ -79,6 +79,7 @@ gem 'social-share-button'
 gem "browserify-rails"
 gem 'metamagic'
 
+gem 'omniauth-facebook'
 
 
 
