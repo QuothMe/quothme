@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
   <div class="row">
     <div class="profile_header">
@@ -66,19 +65,17 @@
 
 
 <div class="quote_list">
-<div class="row">
-<% @user.quotes.each do |quote| %>
-  <div class="user_quote_body">
-    <% if quote.user.present? %>
-    <%= link_to quote, class: :"quote_link" do %>
-      <div class="profile_quote_thumb" style="background:url(<%= quote.image.url -%>); background-size:cover; background-attachment: fixed;>
-        <%= quote.citation %>
-        <%= image_tag quote.image, class:'img_thumb' %>
+  <div class="row">
+  <% @user.quotes.each do |quote| %>
+      <% if quote.user.present? %>
+        <div class="profile_quote_thumb" style="background:url(<%= quote.image.url -%>); background-size:cover;">
+          <%= link_to quote, class: :"quote_link" do %>
+            <div class="profile_quote_text">
+              <%= quote.citation %>
+              </div>
+      <% end %>
         </div>
     <% end %>
+      <% end %>
     </div>
-  </div>
-    <% end %>
-<% end %>
-  </div>
 </div>

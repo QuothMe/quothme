@@ -1,6 +1,4 @@
 <div id="quote" style="background:url(<%= @quote.image.url -%>); background-size:cover; background-attachment: fixed;">
-  <div class="quote-bg">
-  </div>
   <div class="quote-actions">
     <% if current_user && current_user == @quote.user %>
     <%= link_to edit_quote_path(@quote) do %>
