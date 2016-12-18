@@ -88,6 +88,8 @@
   text-decoration: none;
 }
 
+/* Share Bar improvements */
+
 #share-bar {
   position: absolute;
   bottom: 0px;
@@ -111,4 +113,25 @@
     display: inline-block;
     height: 40px !important;
     width: 30px !important;
+}
+
+
+/* Really messy unfinished stuff for profile quotes */
+
+.profile_quote_thumb {
+  text-align: center;
+  height: 200px;
+  padding: 5px;
+  display: inline-block;
+  width: 30%;
+  min-width: 320px;
+  float: left;
+  margin: 10px;
+}
+
+.profile_quote_text {
+  color: #fff;
+  font-weight: 600;
+  font-size: 26px;
+  margin-top: 2em;
 }
