@@ -23,6 +23,8 @@
 
       </div>
 
+
+
       
 
   <div id="share-bar">
@@ -35,3 +37,20 @@
   description: @quote.citation,
   image: @quote.image,
   title: @quote.user.first_name%>
+
+     
+
+            </div>
+
+ <div class="like_button">
+      <% if current_user.liked? @quote %>
+      <%= link_to '', unlike_quote_path(@quote.id), remote: true, id: 'like_#{@quote.id}', class: "glyphicon glyphicon-heart"%>
+      <% else %>
+      <%=link_to '', like_quote_path(@quote.id), remote: true, id: "like_#{@quote.id}", class: "glyphicon glyphicon-heart-empty" %>
+      <% end %>
+        <div class="likes" id="likes_<%=@quote.id%>">
+            <%= render 'quotes/likes', quote: @quote%>
+ </div>
+
+
+

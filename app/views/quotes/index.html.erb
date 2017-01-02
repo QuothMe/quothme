@@ -29,7 +29,10 @@
           <% end %>
           </div>
 
-            <div class="comments" id="comments_<%= quote.id%>"> 
+            
+           
+
+            <div class="comments" id="comments_<%= quote.id%>">
 
             <% if quote.comments.present?%>
               <%= render quote.comments, quote: quote %>

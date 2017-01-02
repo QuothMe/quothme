@@ -80,6 +80,8 @@ gem "browserify-rails"
 gem 'metamagic'
 
 gem 'omniauth-facebook'
+gem 'acts_as_votable'
+
 
 
 

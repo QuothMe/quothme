@@ -14,6 +14,8 @@ before_action :load_activities, only: [:index, :show, :new, :edit]
   end
 end
 
+  
+
   def show
     @quote = Quote.find(params[:id])
   end
@@ -57,6 +59,30 @@ end
     @quote.destroy
     redirect_to root_path
   end
+
+  def like
+    @quote = Quote.find(params[:id])
+    if @quote.liked_by current_user
+      respond_to do |format|
+        format.html {redirect_to :back}
+        format.js 
+      end
+    end
+  end
+
+
+  def unlike
+    @quote = Quote.find(params[:id])
+    if @quote.unliked_by current_user
+      respond_to do |format|
+        format.html {redirect_to :back}
+        format.js 
+      end
+    end
+  end
+    
+
+    
 
   
 
