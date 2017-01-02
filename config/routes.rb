@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root 'quotes#index'
   get 'tags/:tag', to:'quotes#index', as: :tag
   
-  resources :quotes  
+  resources :quotes do
+    resources :comments
+  end
   
   resources :users, only:[:show] do
     member do

@@ -1,5 +1,7 @@
 class Quote < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   validates_presence_of :citation
 
   include PublicActivity::Model
