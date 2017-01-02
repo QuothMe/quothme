@@ -23,6 +23,8 @@
 
       </div>
 
+
+
       
 
   <div id="share-bar">
@@ -35,3 +37,31 @@
   description: @quote.citation,
   image: @quote.image,
   title: @quote.user.first_name%>
+
+     
+
+            </div>
+
+ <div class="like_button">
+      <% if current_user.liked? @quote %>
+      <%= link_to '', unlike_quote_path(@quote.id), remote: true, id: 'like_#{@quote.id}', class: "glyphicon glyphicon-heart"%>
+      <% else %>
+      <%=link_to '', like_quote_path(@quote.id), remote: true, id: "like_#{@quote.id}", class: "glyphicon glyphicon-heart-empty" %>
+      <% end %>
+        <div class="likes" id="likes_<%=@quote.id%>">
+            <%= render 'quotes/likes', quote: @quote%>
+ </div>
+
+
+<div class="comments" id="comments_<%= @quote.id%>">
+
+            <% if @quote.comments.present?%>
+              <%= render @quote.comments, quote: @quote %>
+              
+            <% end %>            
+            <%= form_for([@quote, @quote.comments.build], remote: true) do |f| %>
+            <%=f.text_field :content, placeholder: "Add a comment...", class:"comment_content", id: "comment_content_#{@quote.id}"%>
+            <%= f.submit 'Send Comment' %>
+            <% end %>
+</div>
+

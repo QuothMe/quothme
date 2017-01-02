@@ -29,19 +29,10 @@
           <% end %>
           </div>
 
-            <div class="comments" id="comments_<%= quote.id%>"> 
+            
+           
 
-            <% if quote.comments.present?%>
-              <%= render quote.comments, quote: quote %>
-              
-            <% end %>            
-
-          </div>
-
-            <%= form_for([quote, quote.comments.build], remote: true) do |f| %>
-            <%=f.text_field :content, placeholder: "Add a comment...", class:"comment_content", id: "comment_content_#{quote.id}"%>
-            <%= f.submit 'Send Comment' %>
-            <% end %>
+            
 
            
  <% end %>
