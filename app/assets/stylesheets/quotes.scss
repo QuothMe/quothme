@@ -62,12 +62,17 @@
   font-family: arial, sans-serif;
 }
 
+.action_button {
+  display: inline-block;
+}
+
 .quote-actions {
   color: #fff;
   text-align: right;
   margin: 1em;
   position: fixed;
   right: 0px;
+  min-height: 30px;
 }
 
 .quote-actions :hover {
@@ -86,6 +91,13 @@
   color: #000;
   background-color: #fff;
   text-decoration: none;
+}
+
+/* Stats for a given quote */
+#quote_stats {
+    text-align: right;
+    font-weight: 800;
+    font-size: 10px;
 }
 
 /* Share Bar improvements */

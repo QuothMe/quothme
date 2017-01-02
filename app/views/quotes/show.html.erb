@@ -1,12 +1,25 @@
 <div id="quote" style="background:url(<%= @quote.image.url -%>); background-size:cover; background-attachment: fixed;">
   <div class="quote-actions">
-    <% if current_user && current_user == @quote.user %>
-    <%= link_to edit_quote_path(@quote) do %>
-      <i class="fa fa-pencil"></i>
-       Edit
+
+    <div class="like_button action_button">
+         <% if current_user.liked? @quote %>
+         <%= link_to '', unlike_quote_path(@quote.id), remote: true, id: 'like_#{@quote.id}', class: "glyphicon glyphicon-heart"%>
+         <% else %>
+         <%=link_to '', like_quote_path(@quote.id), remote: true, id: "like_#{@quote.id}", class: "glyphicon glyphicon-heart-empty" %>
+         <% end %>
+    </div>
+
+      <div class="edit_button action_button">
+      <% if current_user && current_user == @quote.user %>
+        <%= link_to edit_quote_path(@quote) do %>
+          <i class="fa fa-pencil"></i>
+           Edit
+        <% end %>
       <% end %>
-    <% end %>
   </div>
+
+
+</div>
 
   <div class="quote-body">
 
@@ -21,11 +34,19 @@
         <% end %>
     </div>
 
+
+<div id="quote_stats">
+      <div class="likes" id="likes_<%=@quote.id%>">
+        <i class="fa fa-user"></i>
+          <%= render 'quotes/likes', quote: @quote%>
       </div>
 
+      </div>
+    </div>
 
 
-      
+
+
 
   <div id="share-bar">
     <%= social_share_button_tag(@quote.citation, :image => @quote.image) %>
@@ -37,31 +58,17 @@
   description: @quote.citation,
   image: @quote.image,
   title: @quote.user.first_name%>
-
-     
-
             </div>
-
- <div class="like_button">
-      <% if current_user.liked? @quote %>
-      <%= link_to '', unlike_quote_path(@quote.id), remote: true, id: 'like_#{@quote.id}', class: "glyphicon glyphicon-heart"%>
-      <% else %>
-      <%=link_to '', like_quote_path(@quote.id), remote: true, id: "like_#{@quote.id}", class: "glyphicon glyphicon-heart-empty" %>
-      <% end %>
-        <div class="likes" id="likes_<%=@quote.id%>">
-            <%= render 'quotes/likes', quote: @quote%>
- </div>
 
 
 <div class="comments" id="comments_<%= @quote.id%>">
 
             <% if @quote.comments.present?%>
               <%= render @quote.comments, quote: @quote %>
-              
-            <% end %>            
+
+            <% end %>
             <%= form_for([@quote, @quote.comments.build], remote: true) do |f| %>
             <%=f.text_field :content, placeholder: "Add a comment...", class:"comment_content", id: "comment_content_#{@quote.id}"%>
             <%= f.submit 'Send Comment' %>
             <% end %>
 </div>
-
