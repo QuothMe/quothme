@@ -1,0 +1,10 @@
+<ul>
+<li> <b> <%= comment.user.username%> </b>
+<span> <%= comment.content%> </span></li>
+</ul>
+
+<% if comment.user == current_user %>
+	 <%= link_to 'delete', quote_comment_path(quote, comment), method: :delete, data: {confirm: "Are you sure?"} %> 
+
+<% end %>
+
