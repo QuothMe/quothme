@@ -131,6 +131,43 @@
 }
 
 
+/* Comments */
+.comments {
+    background: rgb(0, 0, 0);
+    color: #fff;
+}
+
+.comments li {
+  list-style: none;
+  display: block;
+  min-width: 25%;
+}
+
+.comments img {
+  height: 25px;
+  border-radius: 15px;
+}
+
+form#new_comment {
+  margin: auto;
+  width: 90%;
+}
+
+.comment_content {
+  width: 83%;
+  color: #000;
+  padding: 10px;
+  margin: 0px 0px 15px 0px;
+  border-radius: 3px;
+}
+
+.comments .well {
+    background-color: #000;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
 /* Really messy unfinished stuff for profile quotes */
 
 .profile_quote_thumb {
