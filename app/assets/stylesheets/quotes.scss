@@ -95,9 +95,11 @@
 
 /* Stats for a given quote */
 #quote_stats {
-    text-align: right;
-    font-weight: 800;
-    font-size: 10px;
+  font-weight: 800;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 2px;
+  float: left;
 }
 
 /* Share Bar improvements */
@@ -111,9 +113,10 @@
 }
 
 .social-share-button {
-    text-align: right;
-    right: 15px;
-    position: relative;
+  right: 15px;
+  position: relative;
+  display: inline-block;
+  float: right;
 }
 
 /* Really gross temporary overrides */

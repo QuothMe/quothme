@@ -33,15 +33,6 @@
         <b><%= @quote.user.first_name %> <%= @quote.user.last_name %></b>
         <% end %>
     </div>
-
-
-<div id="quote_stats">
-      <div class="likes" id="likes_<%=@quote.id%>">
-        <i class="fa fa-user"></i>
-          <%= render 'quotes/likes', quote: @quote%>
-      </div>
-
-      </div>
     </div>
 
 
@@ -49,6 +40,14 @@
 
 
   <div id="share-bar">
+
+    <div id="quote_stats">
+          <div class="likes" id="likes_<%=@quote.id%>">
+              <%= render 'quotes/likes', quote: @quote %>
+          </div>
+
+    </div>
+
     <%= social_share_button_tag(@quote.citation, :image => @quote.image) %>
   </div>
 </div>
