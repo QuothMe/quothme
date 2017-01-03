@@ -1,13 +1,15 @@
 class CommentsController < ApplicationController
+	before_action :find_quote
+	before_action :find_comment
+	before_action :authenticate_user!
 
 	def create
-		@quote = Quote.find(params[:quote_id])
 		@comment = @quote.comments.build(comment_params.merge(user: current_user))
 		@comment.user_id = current_user.id
 
 
 		if @comment.save
-			create_notification @quote, @comment 
+			create_notification @quote
 			respond_to do |format|
 				format.html {redirect_to root_path}
 				format.js
@@ -19,13 +21,11 @@ class CommentsController < ApplicationController
 	end
 
 	def show
-		@quote = Quote.find(params[:id])
 		@comment = @quote.comments.find_by_id(params[:id])
 	end
 
 
 	def destroy
-		@quote = Quote.find(params[:quote_id])
 		@comment = @quote.comments.find(params[:id])
 
 		if @comment.user == current_user
@@ -40,18 +40,27 @@ class CommentsController < ApplicationController
 		
 	private
 
-	def create_notification(quote, comment)
-		return if quote.user.id == current_user.id
+	def create_notification(quote)
+		return if quote.user == current_user
 		Notification.create(user_id: quote.user.id,
 							notified_by_id: current_user.id,
 							quote_id: quote.id,
-							comment_id: comment.id,
+							identifier: @comment.id,
 							notice_type: 'comment')
 
 	end
 
 	def comment_params
 		params.require(:comment).permit(:content)
+	end
+
+	def find_quote
+		@quote = Quote.find(params[:quote_id])
+	end
+
+	def find_comment
+		@quote = Quote.find(params[:quote_id])
+		@comment = @quote.comments.find_by_id(params[:id])
 	end
 
 
