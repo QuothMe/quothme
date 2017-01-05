@@ -5,7 +5,7 @@
      <span class="glyphicon glyphicon-flag">
   </span>
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu dropdown-menu-right">
       <%= render current_user.notifications.order('created_at DESC').where(read: false)%>
         </ul>
   </div>
