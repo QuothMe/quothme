@@ -3,9 +3,11 @@
       <li class="sidebar-brand"><%= link_to "QuothMe", root_path%></li>
       <div class="sidebar-links">
         <% if user_signed_in? %>
-          <%= render 'layouts/navbarnotis'%>
 
+        <div class="sidebar_actions">
            <li class="sidebar_avatar"><%= image_tag current_user.profile_picture.profile_thumb, class: :"profile_avatar" %></li>
+              <%= render 'layouts/navbarnotis'%>
+         </div>
 
            <li> <%= link_to  new_quote_path do %>
              <i class="fa fa-plus"></i>

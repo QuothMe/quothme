@@ -27,6 +27,34 @@
 body {
  }
 
+
+/* Landing Page */
+#land_heading {
+  text-align: center;
+}
+
+.quote_showcase {
+  min-width: 100px;
+  max-width: 330px;
+  display: inline-block;
+}
+
+.quote_showcase img {
+  width: 100%;
+}
+
+.tagline {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+  margin: 0px 7px 0px 15px;
+  text-align: left;
+}
+
+#features h2 {
+  text-align: center;
+}
+
 /* Quote Index */
 .img_thumb {
   width: 100%;
@@ -99,10 +127,20 @@ body {
   }
 
 #sidebar-wrapper li.sidebar_avatar {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 4em;
+      margin-right: auto;
+      text-align: center;
+      margin-top: 1em;
+      display: inline-block;
+}
+
+.sidebar_actions {
+  margin: auto;
+  width: 87%;
+}
+
+li.notify_wrapper {
+  height: 3em;
+  display: inline-block;
 }
 
 .sidebar-links {
@@ -269,4 +307,32 @@ a.author_link {
   position: absolute;
   bottom: 0px;
   width: 100%;
+}
+
+/* Bootstrap Hack */
+.btn-ghost {
+  background: transparent;
+  border: 2px solid;
+  color: #8e8e8e;
+  border-radius: 20px;
+}
+
+.btn-ghost a {
+  color: #8e8e8e;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  background: rgb(12, 7, 7);
+  color: #ffffff;
+}
+
+.btn-notify {
+  color: #fff;
+  background-color: #737373;
+  border-color: #ccc;
+  border-radius: 20px;
+  font-weight: bold;
+  vertical-align: middle;
 }

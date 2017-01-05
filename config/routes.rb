@@ -5,17 +5,17 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
   get 'auth/facebook/callback', to: 'sessions#create'
-  root 'quotes#index'
+  root 'pages#home'
   get 'tags/:tag', to:'quotes#index', as: :tag
-  
+
   resources :quotes do
     resources :comments
-    member do 
+    member do
       get 'like'
       get 'unlike'
     end
   end
-  
+
   resources :users, only:[:show] do
     member do
       get :following, :followers
