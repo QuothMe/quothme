@@ -31,6 +31,14 @@ body {
 /* Landing Page */
 #land_heading {
   text-align: center;
+  margin: 0;
+}
+
+#features {
+  border: 1px solid #a9a9a9;
+  border-left: none;
+  border-right: none;
+  padding: 1em;
 }
 
 .quote_showcase {
@@ -70,13 +78,6 @@ body {
     margin-right: auto;
 }
 
-.quote_cite {
-      color: #fff;
-      font-weight: bold;
-      font-size: 30px;
-      padding-top: 5em;
-}
-
 /* UI element changes */
 
 .navbar-default {
@@ -112,12 +113,12 @@ body {
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
     top: 0;
     width: 0;
     height: 100%;
     margin-left: -250px;
-    overflow-y: hidden;
+    overflow: visible;
+  /*  overflow-y: hidden; */
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -164,13 +165,22 @@ li.notify_wrapper {
 
 /* Sidebar Styles */
 
-.sidebar-nav {
+ul.sidebar-nav {
    position: absolute;
    top: 0;
    width: 250px;
    margin: 0;
    padding: 0;
    list-style: none;
+   overflow: visible;
+}
+
+ul.dropdown-menu.dropdown-menu-left {
+      width: 18em;
+}
+
+ul.dropdown-menu.dropdown-menu-left li {
+      text-indent: 0;
 }
 
 .sidebar-nav li {
