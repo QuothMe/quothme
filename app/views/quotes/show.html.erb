@@ -2,9 +2,11 @@
   <div class="quote-actions">
 
     <div class="like_button action_button">
+      <% if current_user.present?%>
          <% if current_user.liked? @quote %>
          <%= link_to '', unlike_quote_path(@quote.id), remote: true, id: 'like_#{@quote.id}', class: "glyphicon glyphicon-heart"%>
          <% else %>
+      <% end %>
          <%=link_to '', like_quote_path(@quote.id), remote: true, id: "like_#{@quote.id}", class: "glyphicon glyphicon-heart-empty" %>
          <% end %>
     </div>
