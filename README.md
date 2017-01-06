@@ -46,10 +46,7 @@ length.
 perform ImgMagick operations to alter the picture so that text remains readable
 on every quote.
 
-*tags* are a string value, and are currently broken, because Sean doesn't fully
-understand the usage of the acts_as_taggable_on gem. It is intended to be a
-purely topical tag for quotes to be assigned, with the intent of showing similar
-kinds of quotes revolving around a topic or theme.
+*tags* Tags can be added to quotes when they are created. Users can click on tags from the sidebar to filter by tag. 
 
 ##Future Development
 * OAuth / OpenID Connect (it might be fun to leverage Diaspora's new API)
