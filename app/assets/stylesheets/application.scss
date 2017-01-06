@@ -27,6 +27,42 @@
 body {
  }
 
+
+/* Landing Page */
+#land_heading {
+  text-align: center;
+  margin: 0;
+}
+
+#features {
+  border: 1px solid #a9a9a9;
+  border-left: none;
+  border-right: none;
+  padding: 1em;
+}
+
+.quote_showcase {
+  min-width: 100px;
+  max-width: 330px;
+  display: inline-block;
+}
+
+.quote_showcase img {
+  width: 100%;
+}
+
+.tagline {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+  margin: 0px 7px 0px 15px;
+  text-align: left;
+}
+
+#features h2 {
+  text-align: center;
+}
+
 /* Quote Index */
 .img_thumb {
   width: 100%;
@@ -40,13 +76,6 @@ body {
     padding: 40px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.quote_cite {
-      color: #fff;
-      font-weight: bold;
-      font-size: 30px;
-      padding-top: 5em;
 }
 
 /* UI element changes */
@@ -84,12 +113,12 @@ body {
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
     top: 0;
     width: 0;
     height: 100%;
     margin-left: -250px;
-    overflow-y: hidden;
+    overflow: visible;
+  /*  overflow-y: hidden; */
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -99,10 +128,20 @@ body {
   }
 
 #sidebar-wrapper li.sidebar_avatar {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 4em;
+      margin-right: auto;
+      text-align: center;
+      margin-top: 1em;
+      display: inline-block;
+}
+
+.sidebar_actions {
+  margin: auto;
+  width: 87%;
+}
+
+li.notify_wrapper {
+  height: 3em;
+  display: inline-block;
 }
 
 .sidebar-links {
@@ -126,13 +165,22 @@ body {
 
 /* Sidebar Styles */
 
-.sidebar-nav {
+ul.sidebar-nav {
    position: absolute;
    top: 0;
    width: 250px;
    margin: 0;
    padding: 0;
    list-style: none;
+   overflow: visible;
+}
+
+ul.dropdown-menu.dropdown-menu-left {
+      width: 18em;
+}
+
+ul.dropdown-menu.dropdown-menu-left li {
+      text-indent: 0;
 }
 
 .sidebar-nav li {
@@ -150,6 +198,10 @@ body {
    text-decoration: none;
    color: #fff;
    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li.sidebar_avatar a:hover {
+  background: none;
 }
 
 .sidebar-nav li a:active,
@@ -269,4 +321,32 @@ a.author_link {
   position: absolute;
   bottom: 0px;
   width: 100%;
+}
+
+/* Bootstrap Hack */
+.btn-ghost {
+  background: transparent;
+  border: 2px solid;
+  color: #8e8e8e;
+  border-radius: 20px;
+}
+
+.btn-ghost a {
+  color: #8e8e8e;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  background: rgb(12, 7, 7);
+  color: #ffffff;
+}
+
+.btn-notify {
+  color: #fff;
+  background-color: #737373;
+  border-color: #ccc;
+  border-radius: 20px;
+  font-weight: bold;
+  vertical-align: middle;
 }

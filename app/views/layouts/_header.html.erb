@@ -3,19 +3,24 @@
       <li class="sidebar-brand"><%= link_to "QuothMe", root_path%></li>
       <div class="sidebar-links">
         <% if user_signed_in? %>
-          <%= render 'layouts/navbarnotis'%>
 
-           <li class="sidebar_avatar"><%= image_tag current_user.profile_picture.profile_thumb, class: :"profile_avatar" %></li>
+        <div class="sidebar_actions">
+           <li class="sidebar_avatar">
+             <%= link_to user_path(current_user) do %>
+              <%= image_tag current_user.profile_picture.profile_thumb, class: :"profile_avatar" %></li>
+              <% end %>
+              <%= render 'layouts/navbarnotis'%>
+         </div>
+
+         <li> <%= link_to quotes_path do %>
+           <i class="fa fa-tachometer"></i>
+            Dashboard
+           <% end %>
+         </li>
 
            <li> <%= link_to  new_quote_path do %>
              <i class="fa fa-plus"></i>
               New Quote
-             <% end %>
-           </li>
-
-           <li> <%= link_to user_path(current_user) do %>
-             <i class="fa fa-user-circle"></i>
-             My Profile
              <% end %>
            </li>
 

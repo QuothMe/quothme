@@ -1,4 +1,4 @@
-module QuotesHelper  
+module QuotesHelper
 
  def display_likes(quote)
     votes = quote.votes_for.up.by_type(User)
@@ -6,7 +6,7 @@ module QuotesHelper
     count_likers(votes)
   end
 
-  
+
 
   private
 
@@ -32,4 +32,4 @@ module QuotesHelper
     ' person likes this'
   end
 
-end  
+end

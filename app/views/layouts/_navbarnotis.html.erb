@@ -1,10 +1,12 @@
-<div class="btn-group pull-right">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <%= current_user.notifications.where(read: false).count %>
-   <span class="glyphicon glyphicon-flag"> 
-</span>
-  </button>
-  <ul class="dropdown-menu">
-    <%= render current_user.notifications.order('created_at DESC').where(read: false)%>
-      </ul>
-</div>
+<li class="notify_wrapper">
+  <div class="btn-group pull-left">
+    <button type="button" class="btn btn-notify dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= current_user.notifications.where(read: false).count %>
+     <span class="glyphicon glyphicon-flag">
+  </span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-left">
+      <%= render current_user.notifications.order('created_at DESC').where(read: false)%>
+        </ul>
+  </div>
+</li>

@@ -1,15 +1,20 @@
 ## QuothMe
 __QuothMe__ is a web application dedicated to creating, sharing, and finding
-your favorite quotes. The goal is to demonstrate a simple app that can easily
-act as a frontend for quotes from popular cultural figures.
+your favorite quotes. Quotes are assigned to authors, and contain topical tags
+regarding their subject material.
 
 Additionally, it is possible for people to create original quotes and
 list themselves as the author. This is an aspect of most quote applications that
 remains largely unused.
 
 ### Current Development
-As it stands, the basic app is being cobbled together. You can currently post
-quotes here:
+QuothMe allows for the creation of quotes, favoriting them, commenting on them,
+and following authors. The app demonstrates notifications for comment and favorite
+actions, and allows
+
+Quotes are represented as cards on user profiles, and can be shared to various
+social networks. The design and layout is in the process of being polished up,
+allowing for a simple design that focuses on the content itself.
 
 ```
 http://0.0.0.0:3000/quotes/new
@@ -51,10 +56,5 @@ At this point, this is an extremely basic Ruby on Rails application, and won't
 hold that much more complexity than, say, the One Month Rails Pinteresting app.
 
 With that being said, there are a few interesting feature ideas worth exploring:
-* topical tags for quotes
-* likes, reshares, and comments (maybe)
-* cross-post a quote to social networks
-* User accounts (probably via Devise)
 * OAuth / OpenID Connect (it might be fun to leverage Diaspora's new API)
 * a stream of popular quotes
-* an automated scraper for popular quotes from other websites
