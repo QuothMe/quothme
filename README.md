@@ -51,10 +51,6 @@ understand the usage of the acts_as_taggable_on gem. It is intended to be a
 purely topical tag for quotes to be assigned, with the intent of showing similar
 kinds of quotes revolving around a topic or theme.
 
-### Future Development
-At this point, this is an extremely basic Ruby on Rails application, and won't
-hold that much more complexity than, say, the One Month Rails Pinteresting app.
-
-With that being said, there are a few interesting feature ideas worth exploring:
+##Future Development
 * OAuth / OpenID Connect (it might be fun to leverage Diaspora's new API)
 * a stream of popular quotes
