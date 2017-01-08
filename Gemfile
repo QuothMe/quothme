@@ -51,6 +51,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rspec'
   gem "factory_girl_rails", :require => false
+  
 
 
 end

@@ -1,12 +1,17 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe Quote, type: :model do
-  it "is valid with valid attributes" do
-    quote = Quote.new(citation: "words")
-    expect(quote).to be_valid
+RSpec.describe Quote do
+  it "is valid with a citation" do
+    FactoryGirl.create(:quote).should be_valid
   end
-  it "should not valid without a citation" do
-    quote = Quote.new(citation: nil)
-    expect(quote).to_not be_valid
+
+  it 'is invalid without a citation' do
+  	FactoryGirl.build(:quote, citation: nil).should_not be_valid
   end
+  it 'is invalid without a tag' do
+  	FactoryGirl.build(:quote, tag_list: nil).should_not be_valid
+  end
+
+ 
+  
 end
