@@ -4,10 +4,13 @@ class Quote < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  validates_presence_of :citation
+  validates :citation, :tag_list, presence: true
+
+  mount_uploader :image, ImageUploader
 
   include PublicActivity::Model
   tracked
+
 
   PublicActivity.enabled = false
 
@@ -21,6 +24,6 @@ class Quote < ApplicationRecord
 
 
 
-  mount_uploader :image, ImageUploader
+  
 
 end

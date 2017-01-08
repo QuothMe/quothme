@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
 
-before_action :authenticate_user!, only:[:edit, :update, :delete, :new]
+before_action :authenticate_user!
 #before_action :ensure_admin!, only: [:edit, :update, :delete, :new]
 before_action :load_activities, only: [:index, :show, :new, :edit]
 
@@ -31,6 +31,7 @@ end
 
   def edit
     @quote = Quote.find(params[:id])
+    return render_not_found if @quote.blank?
     unless @quote.user == current_user || current_admin.present?
       return render text: "Not Allowed", status: :forbidden
   end
@@ -52,7 +53,8 @@ end
   end
 
     def destroy
-    @quote = Quote.find(params[:id])
+    @quote = Quote.find_by_id(params[:id])
+    return render_not_found if @quote.blank?
     unless @quote.user == current_user || current_admin.present?
     return render text: "Not Allowed", status: :forbidden
    end
@@ -106,6 +108,10 @@ end
     def load_activities 
        @activities = PublicActivity::Activity.order('created_at DESC')
     end
+
+     def render_not_found(status=:not_found)
+      render text: "#{status.to_s.titleize}", status: status
+     end
 
 
 end
