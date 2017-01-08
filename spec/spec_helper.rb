@@ -17,8 +17,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require "factory_girl_rails"
-require 'capybara'
-require 'capybara/dsl'
+
 
 RSpec.configure do |config|
 
@@ -27,7 +26,6 @@ RSpec.configure do |config|
   # assertions if you prefer.
 
   config.include FactoryGirl::Syntax::Methods
-  config.include Capybara::DSL
 
   config.color = true
   
