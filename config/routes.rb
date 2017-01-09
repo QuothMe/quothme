@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'notifications/:id/link_through', to: 'notifications#link_through',
                                     as: :link_through
 
-  devise_for :admins
+  devise_for :admins, :skip => [:registrations]
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'tags/:tag', to:'quotes#index', as: :tag
