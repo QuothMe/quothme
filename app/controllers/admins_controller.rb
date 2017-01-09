@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_action :ensure_admin!, only:[:new,:create, :edit, :update, :delete]
+  before_action :ensure_admin!, only:[:new, :create, :edit, :update, :delete]
 
   def index
     @admins = Admin.all
@@ -22,8 +22,7 @@ class AdminsController < ApplicationController
  end
 
   def ensure_admin!
-    unless current_admin.admin?
-      sign_out current_user
+    unless current_admin.present? || current_user.admin?
 
       redirect_to root_path
 
@@ -34,7 +33,7 @@ class AdminsController < ApplicationController
   private
 
   def admin_params
-    params.require(:admin).permit(:email, :password, :password_confirmation, :first_name, :profile_picture, :last_name)
+    params.require(:admin).permit(:email, :password, :password_confirmation, :username, :first_name, :profile_picture, :last_name)
   end  
 
 end

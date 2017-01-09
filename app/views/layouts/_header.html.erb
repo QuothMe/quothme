@@ -34,6 +34,7 @@
           <li> <%= link_to 'Logged in as Admin' %> </li>
           <%=  link_to 'Create User', new_users_admin_path, class: 'btn btn-danger' %>
           <%=  link_to 'Create Admin', new_admin_path, class: 'btn btn-primary' %>
+           <%= link_to  'Sign Out', destroy_admin_session_path, class:'btn btn-primary', method: :delete %>         
         <% else %>
 
            <li> <%= link_to new_user_session_path do %>
